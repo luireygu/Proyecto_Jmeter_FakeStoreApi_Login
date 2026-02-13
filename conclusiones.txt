@@ -1,0 +1,43 @@
+PROYECTO: Prueba Ejercicios Performance
+API de Evaluación: FakeStoreAPI
+Endpoint de Evaluación: POST /auth/login
+Herramienta: Apache JMeter 5.6.3
+Tester: Luis
+Fecha: 13/02/2026
+
+1. Alcance de la Prueba
+
+Se ejecutó la prueba de carga controlada sobre el endpoint POST /auth/login, configurada para mantener un throughput constante en 20 TPS y durante 60 segundos. La prueba estaba diseñada para medir:
+	- La estabilidad bajo una carga sostenida.
+	- La consistencia en tiempos de respuesta.
+	- La tasa de errores.
+	- El comportamiento del servicio.
+
+La carga fue regulada mediante Constant Throughput Timer, con 30 hilos, con el motivo de garantizar suficiente concurrencia como para sostener el throughput objetivo.
+
+2. Resultados Técnicos Observados
+
+Durante la ejecución se registraron los siguientes comportamientos:
+	- Throughput sostenido muy cercano a los 20 TPS (alineado con la configuración).
+	- 0 % de tasa de error.
+	- 100 % de validaciones funcionales correctas (presencia de token).
+	- Tiempos de respuesta estables durante toda la ventana de la prueba.
+	- No se evidenció degradación progresiva conforme avanzaba la ejecución.
+	- Comportamiento consistente.
+
+3. Análisis de Tiempos de Respuesta
+Se evaluaron métricas clave:
+	- Tiempo promedio: 397 - 458.
+	- Tiempo máximo: se mantuvo siempre dentro del SLA definido (≤ 1500 ms)(428).
+	- Colas cortas con ausencia de colas prolongadas.
+	- El tiempo máximo se mantuvo sin picos anómalos. Esto indicaría que el sistema respondió de forma consistente incluso en situaciones aisladas de una mayor latencia.
+
+4. Validaciones:
+Las validaciones planteadas fueron contrastadas:
+    - Presencia del campo "token" en la respuesta.
+    - Tiempo de respuesta por transacción (≤ 1500 ms).
+    - Se cumplió el 100 % de las transacciones con ambas validaciones, confirmándose:
+    - Respuestas coherentes y estables incluso para la ejecución sostenida.
+
+Resultados:
+Todos los criterios fueron cumplidos durante la ejecución de la prueba, el endpoint soporta el nivel de carga evaluado sin degradación visible.
