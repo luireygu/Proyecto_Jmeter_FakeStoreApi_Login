@@ -2,7 +2,7 @@ PROYECTO: Prueba Ejercicios Performance
 API de Evaluación: FakeStoreAPI
 Endpoint de Evaluación: POST /auth/login
 Herramienta: Apache JMeter 5.6.3
-Tester: Luis
+Tester: Luis Carlos Reyes Guerrero
 Fecha: 13/02/2026
 
 Nota: Se adjunto el reporte HTML para su visualizacion, dentro del archivo se encontraran los comandos para la creacion del mismo.
